@@ -1,9 +1,12 @@
-# V0.8.3.1 Bank Hotfix
-- Open own prisoner with at least 1 Custia.
-- Click Consume: white awakening screen opens; balance unchanged.
-- Escape before reveal: no charge.
-- Click logo: exactly one Custia deducted, result shown.
-- Continue and reload: balance and history persist.
-- Zero balance: Consume disabled.
-- Other character: no owner consume access.
-- Existing authority adjustments remain intact.
+# Custia V0.8.4 — Personal Quarters & Relationships
+- [ ] Editor fills screen; left preview and right scrollable form
+- [ ] Height changes preview; upload/remove body image
+- [ ] Facebook and Discord aligned
+- [ ] History, Item, Gallery centered and readable
+- [ ] Gallery left bunk, right bunk, desk each store separate images
+- [ ] Archive empty ropes and upload/remove memory
+- [ ] Search roommate by name or number; add/remove up to three
+- [ ] Relationships: lover, friend, enemy, custom color; thoughts persist
+- [ ] Existing records and Custia Bank/Consume still work
+- [ ] Refresh and verify persistence on same browser
+Local prototype only. Browser interaction not verified in build environment.
