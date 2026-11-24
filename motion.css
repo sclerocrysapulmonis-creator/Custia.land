@@ -1,0 +1,23 @@
+/* V0.7.2 — non-blocking interface motion */
+@keyframes ui-enter{from{opacity:0;translate:0 7px}to{opacity:1;translate:0 0}}
+@keyframes ui-card{from{opacity:0;translate:0 10px}to{opacity:1;translate:0 0}}
+@keyframes ui-dialog{from{opacity:0;scale:.98;translate:0 6px}to{opacity:1;scale:1;translate:0 0}}
+@keyframes ui-nav{from{opacity:0;translate:-16px 0}to{opacity:1;translate:0 0}}
+@keyframes ui-fade{from{opacity:0}to{opacity:1}}
+@media(prefers-reduced-motion:no-preference){
+ body,header,.directory,#records,.directoryportrait{transition:background-color .35s,color .35s,border-color .35s,box-shadow .25s}
+ main:not([hidden]){animation:ui-enter .42s ease-out both}
+ .directorycard{animation:ui-card .36s ease-out both;animation-delay:var(--ui-delay,0ms)}
+ dialog[open]:not(#records),#appwindow:not([hidden]){animation:ui-dialog .26s ease-out both}
+ dialog[open]::backdrop{animation:ui-fade .25s ease-out}
+ #navigation:not([hidden]){animation:ui-nav .25s ease-out both}
+ button:not(:disabled):active,.portalbutton:active,.rankhit:active{scale:.98}
+ button,.portalbutton,.rankhit{transition:scale .16s,box-shadow .2s,border-color .2s}
+ .rankhit:hover,.rankhit:focus-visible{fill:#ffffff30;cursor:pointer}
+ .bankamount{font-variant-numeric:tabular-nums}
+ @view-transition{navigation:auto}
+ ::view-transition-old(root){animation:180ms ease-in both ui-out}
+ ::view-transition-new(root){animation:300ms ease-out both ui-fade}
+}
+@keyframes ui-out{to{opacity:0}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto!important}*,*::before,*::after{animation-duration:.001ms!important;transition-duration:.001ms!important;animation-delay:0ms!important}}
