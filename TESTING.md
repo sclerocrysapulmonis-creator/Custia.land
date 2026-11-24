@@ -4,3 +4,5 @@ Original database restored at database.html. Local records are unchanged. Online
 V0.9.1.3: Run account.sql in Supabase SQL Editor, then separately run its final commented INSERT (without --) to issue private single-use codes. Do not reuse old demo codes. Test avatar/about persistence and staff redemption, exit/re-enter. Staff badge is server-backed but existing demo staff actions are NOT authorized by this role; online staff actions and global themes remain unimplemented. Avatar uses existing private portraits bucket (authenticated members can read objects under existing policy). No database page changes.
 
 V0.9.1.4: Run account.sql if needed, then separate private personnel codes SQL. Assign trusted account role in SQL editor. Enter matching code in Account. Verify theme on Home, Database, Missions, Leaderboard, Account and Exit. Demo pages remain unchanged.
+
+V0.9.1.5: run separate manager delete SQL. Test online default, local explicit, create dialog, manager deletion and ordinary account denial, tablet icons, navigation. Manager permission is account-level; exiting theme does not revoke database role. Extended online fields remain unsynced.
