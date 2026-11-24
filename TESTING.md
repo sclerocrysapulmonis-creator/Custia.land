@@ -6,3 +6,5 @@ V0.9.1.3: Run account.sql in Supabase SQL Editor, then separately run its final 
 V0.9.1.4: Run account.sql if needed, then separate private personnel codes SQL. Assign trusted account role in SQL editor. Enter matching code in Account. Verify theme on Home, Database, Missions, Leaderboard, Account and Exit. Demo pages remain unchanged.
 
 V0.9.1.5: run separate manager delete SQL. Test online default, local explicit, create dialog, manager deletion and ordinary account denial, tablet icons, navigation. Manager permission is account-level; exiting theme does not revoke database role. Extended online fields remain unsynced.
+
+V0.9.1.6: Run bank-online.sql before testing online owner bank. Existing online characters receive 2 on first access; local balances not migrated. Test cancel, consume, reload, insufficient funds, and other account denial.
