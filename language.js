@@ -217,7 +217,24 @@ Class description — To be announced.|รายละเอียดตำแ�
 Switch gold theme|สลับธีมสีทอง
 Upload images or audio|อัปโหลดภาพหรือเสียง
 Archive saved locally.|บันทึกในเบราว์เซอร์แล้ว`;
-const dict=new Map((pairs+'\n'+extra).split('\n').map(s=>s.split('|')));let lang=localStorage.getItem('custia.language')||'en';const originals=new WeakMap();const attrs=new WeakMap();const skip='script,style,textarea,#recordname,#realname,#recordid,#tabcontent,#fields dd,.directorycard strong,#recordlist,.missioncard h3,.missioncard p,.missioncard small,#who,#accountlabel,.archivecontent p,.archivecontent strong,#archivename';
+const additions=`Mini Games|มินิเกม
+MINI GAMES|มินิเกม
+COMING SOON|เร็ว ๆ นี้
+PLAY|เล่น
+STANDBY|รอเปิดใช้งาน
+History|ประวัติ
+Item|สิ่งของ
+Gallery|แกลเลอรี
+MY CHARACTERS|ตัวละครของฉัน
+MISSIONS|ภารกิจ
+CONSUME CUSTIA|ใช้คัสเตีย
+CUSTIA BANK.|ธนาคารคัสเตีย
+Awakening records|ประวัติการปลุกพลัง
+CREATE NEW CHARACTER|สร้างตัวละครใหม่
+DELETE CHARACTER|ลบตัวละคร
+History, items and photographs are saved on this device only.|ประวัติ สิ่งของ และรูปภาพจะบันทึกไว้บนอุปกรณ์นี้เท่านั้น
+Archive is saved on this device only.|คลังความทรงจำจะบันทึกไว้บนอุปกรณ์นี้เท่านั้น`;
+const dict=new Map((pairs+'\n'+extra+'\n'+additions).split('\n').map(s=>s.split('|')));let lang=localStorage.getItem('custia.language')||'en';const originals=new WeakMap();const attrs=new WeakMap();const skip='script,style,textarea,#recordname,#realname,#recordid,#tabcontent,#fields dd,.directorycard strong,#recordlist,.missioncard h3,.missioncard p,.missioncard small,#who,#accountlabel,.archivecontent p,.archivecontent strong,#archivename';
 function translate(s){return lang==='th'?(dict.get(s)||s):s}
 function walk(){if(document.documentElement.lang!==lang)document.documentElement.lang=lang;const w=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT);let n;while(n=w.nextNode()){if(n.parentElement.closest(skip))continue;let old=originals.get(n);if(!old||n.nodeValue!==old.last){old={source:n.nodeValue,last:n.nodeValue};originals.set(n,old)}let t=old.source.replace(/\S(?:[\s\S]*\S)?/,x=>translate(x));if(n.nodeValue!==t)n.nodeValue=t;old.last=t;}for(const e of document.querySelectorAll('[placeholder]')){let a=attrs.get(e)||e.getAttribute('placeholder');attrs.set(e,a);let t=translate(a);if(e.placeholder!==t)e.placeholder=t;}document.querySelectorAll('#custia-lang button').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.lang===lang)));}
 const box=document.createElement('div');box.id='custia-lang';box.innerHTML='<button type="button" data-lang="en">EN</button><button type="button" data-lang="th">TH</button>';document.body.append(box);box.onclick=e=>{if(!e.target.dataset.lang)return;lang=e.target.dataset.lang;localStorage.setItem('custia.language',lang);walk()};let queued=false;new MutationObserver(()=>{if(!queued){queued=true;requestAnimationFrame(()=>{queued=false;walk()})}}).observe(document.body,{subtree:true,childList:true,characterData:true});walk();
