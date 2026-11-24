@@ -1,0 +1,6 @@
+V0.9.0-alpha — isolated online test, not public release.
+1. Supabase SQL Editor: run online.sql after previous profiles SQL.
+2. Deploy all files to Vercel (same production domain). Open /online.html.
+3. Sign in via Discord; save profile; create character. Use a second Discord account in a separate browser to verify live updates and ownership.
+4. Do not open to public yet. Existing pages remain local demo, including staff codes, bank, missions and Awakening. No migration of local data. Online page supports Discord login only, basic character fields and portraits. Full-body/gallery, password login, invite restrictions and server-side wallet not implemented. Existing demo staff codes are not security credentials; never reuse them. Uploaded portraits can accumulate on replacement or failed saves; no deletion UI yet.
+5. SQL and OAuth not tested against live project. If errors occur send error text, never secrets.
