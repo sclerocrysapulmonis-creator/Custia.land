@@ -1,0 +1,3 @@
+const keys=['number','alias','zone','bio','gender','quote','skill1','skill2','skill3','skill4','facebook','discord'];
+export function characterPayload(f){const r=Object.fromEntries(keys.map(k=>[k,f.elements[k].value.trim()]));r.name=r.alias||'Unknown';for(const k of ['age','height','weight'])r[k]=f.elements[k].value?Number(f.elements[k].value):null;r.rp=Array.from(f.querySelectorAll('[name=rp]:checked'),x=>x.value);return r}
+export function fillCharacter(f,r){for(const k of [...keys,'age','height','weight'])f.elements[k].value=r[k]??(k==='gender'?'Unspecified':'');for(const x of f.querySelectorAll('[name=rp]'))x.checked=(r.rp||[]).includes(x.value)}
