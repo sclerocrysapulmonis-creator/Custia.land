@@ -1,12 +1,9 @@
-# Custia V0.8.4 — Personal Quarters & Relationships
-- [ ] Editor fills screen; left preview and right scrollable form
-- [ ] Height changes preview; upload/remove body image
-- [ ] Facebook and Discord aligned
-- [ ] History, Item, Gallery centered and readable
-- [ ] Gallery left bunk, right bunk, desk each store separate images
-- [ ] Archive empty ropes and upload/remove memory
-- [ ] Search roommate by name or number; add/remove up to three
-- [ ] Relationships: lover, friend, enemy, custom color; thoughts persist
-- [ ] Existing records and Custia Bank/Consume still work
-- [ ] Refresh and verify persistence on same browser
-Local prototype only. Browser interaction not verified in build environment.
+# Custia V0.8.4.1 — Interaction hotfix
+- Open own prisoner profile: bank is beneath full body.
+- Consume opens fullscreen; cancel leaves balance unchanged.
+- Activate once: exactly one Custia spent; result appears after animation; continue returns to profile.
+- Refresh: balance and awakening history persist. Zero balance disables consume.
+- Gallery: select Gallery, left bunk, desk, right bunk; upload a photo and check persistence.
+- Switch EN/TH and repeat. Check other character cannot consume or edit photos.
+- Existing local data remains under the same storage keys.
+Validation: JavaScript syntax and ZIP integrity checked. Chromium navigation blocked by environment; real browser interactions not verified.
