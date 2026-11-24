@@ -10,3 +10,5 @@ V0.9.1.5: run separate manager delete SQL. Test online default, local explicit, 
 V0.9.1.6: Run bank-online.sql before testing online owner bank. Existing online characters receive 2 on first access; local balances not migrated. Test cancel, consume, reload, insufficient funds, and other account denial.
 
 V0.9.1.7: Full-page mini games, restored local extras for online profiles, Thai typography. Online extras remain device-local; no new SQL. Test on iPad before production.
+
+V0.9.1.9: Full-screen online editor. Run editor0919.sql after security0918.sql. Browser and live database tests pending. Skill title and description share existing text columns.
