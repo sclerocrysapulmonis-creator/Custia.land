@@ -7,3 +7,10 @@
 - Switch EN/TH and repeat. Check other character cannot consume or edit photos.
 - Existing local data remains under the same storage keys.
 Validation: JavaScript syntax and ZIP integrity checked. Chromium navigation blocked by environment; real browser interactions not verified.
+
+V0.9.1.1: Optional registration
+- Sign in with an account with zero characters; registration form remains hidden.
+- Save profile without entering character details; navigate Home and shared directory.
+- My Characters displays zero records and an optional Create Character button.
+- Create opens form; Cancel closes it without saving; Edit opens existing record.
+- Save character updates own count and closes form. Verify with real Supabase session.
