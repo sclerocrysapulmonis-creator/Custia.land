@@ -1,0 +1,16 @@
+BEGIN;
+CREATE TABLE IF NOT EXISTS public.custia_extras093(character_id uuid PRIMARY KEY REFERENCES public.custia_characters(id) ON DELETE CASCADE,content jsonb NOT NULL DEFAULT '{}');
+ALTER TABLE public.custia_extras093 ENABLE ROW LEVEL SECURITY;
+GRANT SELECT ON public.custia_extras093 TO anon,authenticated;
+GRANT INSERT,UPDATE ON public.custia_extras093 TO authenticated;
+DROP POLICY IF EXISTS extras093_read ON public.custia_extras093;
+CREATE POLICY extras093_read ON public.custia_extras093 FOR SELECT USING(true);
+DROP POLICY IF EXISTS extras093_write ON public.custia_extras093;
+CREATE POLICY extras093_write ON public.custia_extras093 FOR ALL TO authenticated USING(EXISTS(SELECT 1 FROM public.custia_characters c WHERE c.id=character_id AND c.owner=auth.uid())) WITH CHECK(EXISTS(SELECT 1 FROM public.custia_characters c WHERE c.id=character_id AND c.owner=auth.uid()));
+GRANT SELECT ON public.custia_characters TO anon;
+DROP POLICY IF EXISTS custia_guest_read ON public.custia_characters;
+CREATE POLICY custia_guest_read ON public.custia_characters FOR SELECT TO anon USING(true);
+UPDATE storage.buckets SET file_size_limit=5242880 WHERE id='custia-portraits';
+DROP POLICY IF EXISTS custia_guest_portrait ON storage.objects;
+CREATE POLICY custia_guest_portrait ON storage.objects FOR SELECT TO anon USING(bucket_id='custia-portraits');
+COMMIT;
