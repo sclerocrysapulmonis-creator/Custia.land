@@ -12,3 +12,8 @@ V0.9.1.6: Run bank-online.sql before testing online owner bank. Existing online 
 V0.9.1.7: Full-page mini games, restored local extras for online profiles, Thai typography. Online extras remain device-local; no new SQL. Test on iPad before production.
 
 V0.9.1.9: Full-screen online editor. Run editor0919.sql after security0918.sql. Browser and live database tests pending. Skill title and description share existing text columns.
+
+V0.9.2.0: Archive rope board, draggable relationship photos, custom colors, thoughts and roommates. Existing memories retained. Local storage only; browser and Supabase integration not tested.
+
+## V0.9.2.1
+Archive uses archive-board.js/css once in database.html. Demo page intentionally absent from production. Existing local storage key, memories and custom colors preserved. Terminal fixed responsive height 507–650px; scroll article only. Correct logo on online pages; full-body silhouette hidden, portrait unchanged. No SQL changes. Browser/iPad and live backend not tested.
