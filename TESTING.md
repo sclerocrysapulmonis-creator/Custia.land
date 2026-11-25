@@ -17,3 +17,5 @@ V0.9.2.0: Archive rope board, draggable relationship photos, custom colors, thou
 
 ## V0.9.2.1
 Archive uses archive-board.js/css once in database.html. Demo page intentionally absent from production. Existing local storage key, memories and custom colors preserved. Terminal fixed responsive height 507–650px; scroll article only. Correct logo on online pages; full-body silhouette hidden, portrait unchanged. No SQL changes. Browser/iPad and live backend not tested.
+
+V0.9.3.1: No new SQL. History, items and gallery remain device-local; existing online directory restored from 0.9.2.2. Guest access, reciprocal relationships, real-name visibility and 5 MB online portraits are not included. Existing photo gallery entries are copied into memory board on first opening. Test navigation, paper animation, owner edit, item scenes and mobile layout on preview before production. Live browser/Supabase tests not performed.
