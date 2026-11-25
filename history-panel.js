@@ -12,9 +12,9 @@ const logo='<svg viewBox="0 0 120 120" aria-hidden="true"><use href="#logo" styl
 
 function draw(){
   sec.replaceChildren();sec.hidden=!current||!!window.custiaExtraMode;if(!current)return;
-  const r=current,k=key(r),own=r.onlineOwner?!!r.onlineOwn:!!account&&r.owner===account,a=read()[k]||{};
+  const r=current,k=key(r),own=r.onlineOwner?!!r.onlineOwn:!!account&&r.owner===account,a=window.custiaExtras.read(r);
   if(k!==last){last=k;idx=0;editing=false}
-  const hist=a.history||r.onlineBio||'',crime=a.crime||'';
+  const hist=a.history??r.onlineBio??'',crime=a.crime||'';
   const title=el('div','hist-title','HISTORY');title.setAttribute('aria-hidden','true');
   const main=el('div','hist-main'),side=el('div','hist-side');sec.append(title,main,side);
   const status=el('p','hist-status');status.setAttribute('role','status');
@@ -25,7 +25,7 @@ function draw(){
     const page=el('div','hist-page'),mk=(l,v)=>{const lab=el('label',undefined,l),ta=el('textarea');ta.value=v;ta.maxLength=5000;lab.append(ta);page.append(lab);return ta};
     const h=mk('Character History',hist),c=mk('Criminal Records',crime),inc=mk('Reason for incarceration',a.incarceration||'');page.append(status);
     const saveButton=el('button','hist-save','Save History');saveButton.type='button';saveButton.onclick=()=>save();page.append(saveButton);main.append(back,page);
-    const save=()=>{if(!own){editing=false;draw();return}try{const all=read();all[k]={...(all[k]||{}),history:h.value,crime:c.value,incarceration:inc.value};localStorage.setItem(store,JSON.stringify(all));editing=false;draw()}catch{status.textContent=T('Storage full.','พื้นที่เต็ม')}};
+    const save=async()=>{if(!own)return;saveButton.disabled=true;try{await window.custiaExtras.save(r,{...window.custiaExtras.read(r),history:h.value,crime:c.value,incarceration:inc.value});editing=false;draw()}catch(e){status.textContent=e.message}finally{saveButton.disabled=false}};
     back.onclick=()=>{
       if(h.value===hist&&c.value===crime&&inc.value===(a.incarceration||'')){editing=false;draw();return}
       const dlg=el('dialog','hist-dlg');dlg.append(el('p',undefined,T('Discard writing?','ยกเลิกการเขียนหรือไม่?')));
@@ -53,5 +53,5 @@ function draw(){
   
 }
 document.addEventListener('click',e=>{if(!e.target.closest('.hist-pen'))sec.querySelector('.hist-pen')?.classList.remove('glow')});
-const prev=renderRecord;renderRecord=function(){prev();draw()};renderRecord();
+window.custiaHistoryRefresh=()=>{if(!editing)draw()};const prev=renderRecord;renderRecord=function(){prev();draw()};renderRecord();
 })();
