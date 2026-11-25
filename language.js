@@ -1,5 +1,8 @@
 (()=>{
-const pairs=`Report|รายงาน
+const pairs=`Setting|เซ็ตติ้ง
+Custia Prison|เรือนจำคัสเตีย
+Custia Organization and Legal Operations|องค์กรคัสเตียและการทำงานทางกฎหมาย
+Report|รายงาน
 CHARACTER DATABASE|ฐานข้อมูลตัวละคร
 Original Ability|พลังดั้งเดิม
 HOME|หน้าหลัก
@@ -65,7 +68,7 @@ Institutional correspondence and community assistance.|การติดต่�
 SIMULATED CONTACT CHANNELS — NOT CONNECTED|ช่องทางติดต่อจำลอง — ยังไม่เชื่อมต่อ
 ← HOME|← หน้าหลัก
 CHARACTER DIRECTORY.|ทะเบียนตัวละคร
-PRISONERS ZONE|เขตนักโทษ
+PRISONER NUMBER|หมายเลขนักโทษ
 PERSONNEL DIRECTORY|ทะเบียนพนักงาน
 ZONE INFORMATION|ข้อมูลเขต
 ALL ZONES|ทุกเขต
