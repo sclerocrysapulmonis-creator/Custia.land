@@ -27,4 +27,5 @@ V0.7.7: report placeholder, character rules, navigation, full profile, star load
 
 V0.7.8: profile and navigation stability patch; local demo only.
 
+V0.9.3.5: fix0935.css/js -- pen pinned top-right of History panel, tidier Database layout, full-body image height = character height on the cm ruler, guest/relationship error hints + Refresh button. Run guest0934.sql and relationships0933.sql in Supabase for guest view and relationships.
 V0.9.3.2: History / Item / Gallery tabs are now a permanent sticky bar (interactive093.js) under the site header; old extras panel retired (v0932.css). Paper is portrait 5:7 and sized to the visible screen height; white pen stays on the same screen as the paper. History save re-checks character ownership. No SQL changes. Live Supabase tests not performed.

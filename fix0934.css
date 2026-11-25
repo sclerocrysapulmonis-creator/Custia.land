@@ -1,0 +1,6 @@
+#records .i93tabs:not([hidden]){display:flex!important;position:sticky;top:64px;z-index:29;visibility:visible!important;opacity:1!important}
+#records .i93tabs button{display:block!important;visibility:visible!important;opacity:1!important}
+#records .hist:not([hidden]) .hist-side{position:relative!important;inset:auto!important;grid-column:1/-1;display:flex!important;justify-content:center;align-items:center;min-height:85px}
+#records .hist.editing .hist-side{display:none!important}
+#records .hist-pen{display:block!important;visibility:visible!important;opacity:1!important;transform:rotate(-10deg)!important;margin:25px!important}
+#records .hist,#records .interactive093{scroll-margin-top:135px}
