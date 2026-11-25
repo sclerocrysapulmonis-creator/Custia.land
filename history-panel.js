@@ -8,8 +8,7 @@ const T=(en,th)=>document.documentElement.lang==='th'?th:en;
 const sec=el('section','hist');grid.after(sec);
 const ROT=[-1.5,4,-5];let idx=0,editing=false,last='',busy=false;
 const logo='<svg viewBox="0 0 120 120" aria-hidden="true"><use href="#logo" style="color:#d0002a;--logo-hole:#eee"/></svg>';
-// the old History button is replaced; Item / Gallery ribbons reuse the existing panels
-const old=n=>[...document.querySelectorAll('.extrasnav button')][n];
+// V0.9.3.2: History/Item/Gallery tabs live in interactive093.js (permanent sticky bar)
 
 function draw(){
   sec.replaceChildren();sec.hidden=!current||!!window.custiaExtraMode;if(!current)return;
@@ -26,7 +25,7 @@ function draw(){
     const page=el('div','hist-page'),mk=(l,v)=>{const lab=el('label',undefined,l),ta=el('textarea');ta.value=v;ta.maxLength=5000;lab.append(ta);page.append(lab);return ta};
     const h=mk('Character History',hist),c=mk('Criminal Records',crime),inc=mk('Reason for incarceration',a.incarceration||'');page.append(status);
     const saveButton=el('button','hist-save','Save History');saveButton.type='button';saveButton.onclick=()=>save();page.append(saveButton);main.append(back,page);
-    const save=()=>{try{const all=read();all[k]={...a,history:h.value,crime:c.value,incarceration:inc.value};localStorage.setItem(store,JSON.stringify(all));editing=false;draw()}catch{status.textContent=T('Storage full.','พื้นที่เต็ม')}};
+    const save=()=>{if(!own){editing=false;draw();return}try{const all=read();all[k]={...(all[k]||{}),history:h.value,crime:c.value,incarceration:inc.value};localStorage.setItem(store,JSON.stringify(all));editing=false;draw()}catch{status.textContent=T('Storage full.','พื้นที่เต็ม')}};
     back.onclick=()=>{
       if(h.value===hist&&c.value===crime&&inc.value===(a.incarceration||'')){editing=false;draw();return}
       const dlg=el('dialog','hist-dlg');dlg.append(el('p',undefined,T('Discard writing?','ยกเลิกการเขียนหรือไม่?')));
@@ -49,7 +48,7 @@ function draw(){
   layout();main.append(stack);
   if(own){const pen=el('button','hist-pen');pen.type='button';pen.setAttribute('aria-label','Edit History');
     pen.append(el('span','pentip','Edit History'));
-    pen.onclick=e=>{e.stopPropagation();editing=true;draw()};
+    pen.onclick=e=>{e.stopPropagation();if(!own)return;editing=true;draw()};
     side.append(pen)}
   
 }

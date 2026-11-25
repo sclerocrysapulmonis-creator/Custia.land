@@ -26,3 +26,5 @@ V0.7.6: Discord-only signup UI and username/password local demo. Discord connect
 V0.7.7: report placeholder, character rules, navigation, full profile, star loading, finer particles. Original ability recorded; redistribution pending rules and backend.
 
 V0.7.8: profile and navigation stability patch; local demo only.
+
+V0.9.3.2: History / Item / Gallery tabs are now a permanent sticky bar (interactive093.js) under the site header; old extras panel retired (v0932.css). Paper is portrait 5:7 and sized to the visible screen height; white pen stays on the same screen as the paper. History save re-checks character ownership. No SQL changes. Live Supabase tests not performed.
