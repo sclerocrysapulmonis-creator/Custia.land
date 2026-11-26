@@ -1,0 +1,3 @@
+import {createClient} from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
+const db=createClient('https://mtupbtlqbjtladkogjrq.supabase.co','sb_publishable_BuroUNv_POvAOMO4Gf2JsQ_3o6sPyCu');
+const {data,error}=await db.rpc('custia_ranking938');if(error)document.getElementById('empty').textContent=error.message;else for(const [i,r] of data.entries()){const tr=document.createElement('tr');for(const v of [i+1,r.alias+' / '+r.number,r.character_class,r.balance]){const td=document.createElement('td');td.textContent=v;tr.append(td)}const a=document.createElement('a');a.href='database.html?character='+encodeURIComponent(r.id);a.textContent=tr.children[1].textContent;tr.children[1].replaceChildren(a);document.getElementById('ranking').append(tr)}

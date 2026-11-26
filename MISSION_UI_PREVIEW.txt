@@ -1,0 +1,1 @@
+UI preview only. Mission data remains local demo; no real rewards or online Teacher authorization. Existing demo completion retained. Do not deploy as complete update.
