@@ -1,0 +1,5 @@
+V0.9.3.9 integration preview
+Full website based on CALENDAR Alpha 1 / V0.9.3.8 image adjustment.
+Merged Alpha 2 calendar patch; existing unrelated source files preserved.
+Mission page remains local demo in this source; prior requested account and mission changes are not certified complete.
+No SQL changes. Live deployment source may differ. Back up current deployment before replacing. Browser and live multiplayer tests pending.
