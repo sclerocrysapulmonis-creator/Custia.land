@@ -44,6 +44,7 @@ Community Rules|กฎชุมชน
 Character Rules|กฎตัวละคร
 System|ระบบ
 Platform & How to Play|แพลตฟอร์มและวิธีเล่น
+Platform|แพลตฟอร์ม
 Uniform & Role|เครื่องแบบและบทบาท
 Story|เนื้อเรื่อง
 Class & Power|คลาสและพลัง
