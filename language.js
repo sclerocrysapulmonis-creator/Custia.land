@@ -238,8 +238,183 @@ CREATE NEW CHARACTER|สร้างตัวละครใหม่
 DELETE CHARACTER|ลบตัวละคร
 History, items and photographs are saved on this device only.|ประวัติ สิ่งของ และรูปภาพจะบันทึกไว้บนอุปกรณ์นี้เท่านั้น
 Archive is saved on this device only.|คลังความทรงจำจะบันทึกไว้บนอุปกรณ์นี้เท่านั้น`;
-const dict=new Map((pairs+'\n'+extra+'\n'+additions).split('\n').map(s=>s.split('|')));let lang=localStorage.getItem('custia.language')||'en';const originals=new WeakMap();const attrs=new WeakMap();const skip='script,style,textarea,#recordname,#realname,#recordid,#tabcontent,#fields dd,.directorycard strong,#recordlist,.missioncard h3,.missioncard p,.missioncard small,#who,#accountlabel,.archivecontent p,.archivecontent strong,#archivename';
-function translate(s){return lang==='th'?(dict.get(s)||s):s}
-function walk(){if(document.documentElement.lang!==lang)document.documentElement.lang=lang;const w=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT);let n;while(n=w.nextNode()){if(n.parentElement.closest(skip))continue;let old=originals.get(n);if(!old||n.nodeValue!==old.last){old={source:n.nodeValue,last:n.nodeValue};originals.set(n,old)}let t=old.source.replace(/\S(?:[\s\S]*\S)?/,x=>translate(x));if(n.nodeValue!==t)n.nodeValue=t;old.last=t;}for(const e of document.querySelectorAll('[placeholder]')){let a=attrs.get(e)||e.getAttribute('placeholder');attrs.set(e,a);let t=translate(a);if(e.placeholder!==t)e.placeholder=t;}document.querySelectorAll('#custia-lang button').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.lang===lang)));}
+const interface951=`Details|รายละเอียด
+Accept|ยอมรับ
+Cancel|ยกเลิก
+Latest|ล่าสุด
+Oldest|เก่าสุด
+Open on time|เปิดตามเวลา
+Available|พร้อมรับภารกิจ
+Unavailable|ไม่พร้อมรับภารกิจ
+Ongoing|กำลังดำเนินการ
++ Create Mission|+ สร้างภารกิจ
+ACCOUNT / PERSONNEL AUTHORIZATION ↗|บัญชี / ยืนยันสิทธิ์พนักงาน ↗
+ISSUE MISSION|ออกภารกิจ
+Title|หัวข้อ
+Objective|เป้าหมาย
+Fatality risk|ความเสี่ยงเสียชีวิต
+Low|ต่ำ
+Medium|ปานกลาง
+High|สูง
+Critical|วิกฤต
+Very Easy|ง่ายมาก
+Easy|ง่าย
+Hard|ยาก
+Life-threatening|เสี่ยงชีวิต
+Custia reward|รางวัลคัสเตีย
+Participants|ผู้เข้าร่วม
+Difficulty|ความยาก
+Scheduled opening (Thailand UTC+7)|เวลาเปิดภารกิจ (ไทย UTC+7)
+Publish mission|เผยแพร่ภารกิจ
+No missions issued yet.|ยังไม่มีภารกิจ
+Reward|รางวัล
+MISSION|ภารกิจ
+Notifications|การแจ้งเตือน
+Mark all as read|อ่านทั้งหมด
+No notifications|ไม่มีการแจ้งเตือน
+Sound Settings|ตั้งค่าเสียง
+Announcement sound|เสียงประกาศ
+Incoming mail sound|เสียงข้อความเข้า
+Outgoing mail sound|เสียงส่งข้อความ
+Message request sound|เสียงคำขอสนทนา
+Saved|บันทึกแล้ว
+Announcement Board|กระดานประกาศ
+Announcement Board →|กระดานประกาศ →
+ANNOUNCEMENT|ประกาศ
+OFFICIAL COMMUNICATION SERVICE|บริการสื่อสารทางการ
+Create Announcement|สร้างประกาศ
+My Announcements|ประกาศของฉัน
+Public Board|กระดานสาธารณะ
+Category|หมวดหมู่
+General|ทั่วไป
+Official|ทางการ
+Security|ความปลอดภัย
+Training|การฝึกอบรม
+Event|กิจกรรม
+System|ระบบ
+Image (max 5 MB)|รูปภาพ (สูงสุด 5 MB)
+Remove existing image|ลบรูปภาพเดิม
+Pin announcement|ปักหมุดประกาศ
+Publish time (UTC+7; blank = now)|เวลาเผยแพร่ (UTC+7; เว้นว่างเพื่อเผยแพร่ทันที)
+Expiration (UTC+7; optional)|เวลาหมดอายุ (UTC+7; ไม่บังคับ)
+Save Draft|บันทึกร่าง
+Publish / Schedule|เผยแพร่ / ตั้งเวลา
+Pinned|ปักหมุด
+Load more|โหลดเพิ่มเติม
+INTERNAL COMMUNICATION SERVICE|บริการสื่อสารภายใน
+MAIL|จดหมาย
+Sign in to use private mail.|เข้าสู่ระบบเพื่อใช้จดหมายส่วนตัว
+Search|ค้นหา
+Message Requests|คำขอสนทนา
+Blocked Players|ผู้เล่นที่บล็อก
+Messages|ข้อความ
+Block Player|บล็อกผู้เล่น
+Load older messages|โหลดข้อความก่อนหน้า
+Sending as|ส่งในนาม
+Send|ส่ง
+Close|ปิด
+Open|เปิด
+Contact|ติดต่อ
+Contact Owner|ติดต่อเจ้าของตัวละคร
+Optional introduction|ข้อความแนะนำตัว (ไม่บังคับ)
+Send request / Open chat|ส่งคำขอ / เปิดแชต
+No results.|ไม่พบผลลัพธ์
+incoming|คำขอเข้า
+outgoing|คำขอออก
+accept|ยอมรับ
+decline|ปฏิเสธ
+cancel|ยกเลิก
+Reply|ตอบกลับ
+Copy text|คัดลอกข้อความ
+Delete for me|ลบสำหรับฉัน
+Delete for everyone|ลบสำหรับทุกคน
+Unblock|เลิกบล็อก
+This message was deleted.|ข้อความนี้ถูกลบแล้ว
+Quarters|ห้องพัก
+Blanket|ผ้าห่ม
+Under Bed|ใต้เตียง
+Pillow|หมอน
+Drawer|ลิ้นชัก
+Poster|โปสเตอร์
+My Uniform|เครื่องแบบของฉัน
+Fold again|พับอีกครั้ง
+Height Comparison|เปรียบเทียบส่วนสูง
+Connecting to online records…|กำลังเชื่อมต่อทะเบียนออนไลน์…
+Connecting…|กำลังเชื่อมต่อ…
+Connecting realtime…|กำลังเชื่อมต่อแบบเรียลไทม์…
+Loading records…|กำลังโหลดทะเบียน…
+Checking authorization…|กำลังตรวจสอบสิทธิ์…
+Sign in or register using your Discord account.|เข้าสู่ระบบหรือสมัครด้วยบัญชี Discord
+Account|บัญชี
+Shared directory|ทะเบียนร่วม
+Log out|ออกจากระบบ
+MY ACCOUNT.|บัญชีของฉัน
+Upload profile picture|อัปโหลดรูปโปรไฟล์
+Description|คำอธิบาย
+About me|เกี่ยวกับฉัน
+Nickname|ชื่อเล่น
+Save profile|บันทึกโปรไฟล์
+PERSONNEL ACCESS.|สิทธิ์พนักงาน
+Authorize|ยืนยันสิทธิ์
+Exit Personnel Access|ออกจากสิทธิ์พนักงาน
+Enter Personnel Access|เข้าสู่สิทธิ์พนักงาน
+MY CHARACTERS.|ตัวละครของฉัน
+No characters registered. You may register a character whenever you are ready.|ยังไม่มีตัวละคร คุณสามารถสร้างตัวละครได้เมื่อพร้อม
+＋ CREATE CHARACTER|＋ สร้างตัวละคร
+＋ CREATE NEW CHARACTER|＋ สร้างตัวละครใหม่
+Explore Custia|สำรวจคัสเตีย
+⌕ Explore Custia|⌕ สำรวจคัสเตีย
+CREATE CHARACTER.|สร้างตัวละคร
+01 / PORTRAIT|01 / ภาพโปรไฟล์
+02 / FULL BODY|02 / ภาพเต็มตัว
+↑ Upload portrait|↑ อัปโหลดภาพโปรไฟล์
+↑ Upload full body|↑ อัปโหลดภาพเต็มตัว
+CHARACTER PREVIEW|ตัวอย่างตัวละคร
+03 / PERSONAL INFORMATION|03 / ข้อมูลส่วนตัว
+Weight|น้ำหนัก
+Male|ชาย
+Female|หญิง
+04 / SKILLS|04 / ทักษะ
+05 / CONTACT INFORMATION (OOC)|05 / ช่องทางติดต่อ (OOC)
+Unassigned|ยังไม่กำหนด
+Background|ประวัติ
+SAVE CHARACTER|บันทึกตัวละคร
+Save character|บันทึกตัวละคร
+Prisoners database|ฐานข้อมูลนักโทษ
+Refresh|รีเฟรช
+Character registration|ลงทะเบียนตัวละคร
+Alias|นามแฝง
+Portrait (max 2 MB)|ภาพโปรไฟล์ (สูงสุด 2 MB)
+Live Custia balances|ยอดคัสเตียปัจจุบัน
+Rank|อันดับ
+Alias / Number|นามแฝง / หมายเลข
+← MINI GAMES|← มินิเกม
+CUSTIA / RECREATION|คัสเตีย / สันทนาการ
+CALENDAR GAME|เกมปฏิทิน
+Solo|เล่นคนเดียว
+Multiplayer|เล่นหลายคน
+Mode|โหมด
+Endless|ไม่สิ้นสุด
+Classified|คดีลับ
+Continue|ดำเนินการต่อ
+Back|ย้อนกลับ
+ENDLESS|ไม่สิ้นสุด
+CLASSIFIED|คดีลับ
+Best endless score:|คะแนนสูงสุดโหมดไม่สิ้นสุด:
+BACK TO MENU|กลับเมนู
+EVIDENCE|หลักฐาน
+CASE|คดี
+FILE|แฟ้ม
+RECONSTRUCTION|จำลองเหตุการณ์
+VERIFY|ตรวจสอบ
+PAUSE|หยุดชั่วคราว
+EXIT|ออก
+NEXT CASE|คดีถัดไป
+No character penalties · No Custia transactions|ไม่มีบทลงโทษตัวละคร · ไม่มีการใช้คัสเตีย
+CUSTIA RECREATIONAL SYSTEM|ระบบสันทนาการคัสเตีย
+Sign Up|สมัครสมาชิก`;
+const dict=new Map((pairs+'\n'+extra+'\n'+additions+'\n'+interface951).split('\n').map(s=>s.split('|')));let lang=localStorage.getItem('custia.language')||'en';const originals=new WeakMap();const attrs=new WeakMap();const skip='script,style,textarea,[data-no-translate],.entry strong,.entry small,.bubble p,.bubble small,.quote,.ann-card h2,.ann-card p,.ann-notify-panel a,#recordname,#realname,#recordid,#tabcontent,#fields dd,.directorycard strong,#recordlist,.missioncard h3,.missioncard p,.missioncard small,#who,#accountlabel,.archivecontent p,.archivecontent strong,#archivename';
+function translate(s){return lang==='th'?(dict.get(s)||(s.match(/^Message Requests \((\d+)\)$/)?s.replace('Message Requests','คำขอสนทนา'):s)):s}
+function walk(){if(document.documentElement.lang!==lang)document.documentElement.lang=lang;const w=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT);let n;while(n=w.nextNode()){if(n.parentElement.closest(skip))continue;if(n.parentElement.tagName==='OPTION'&&!n.parentElement.hasAttribute('value'))n.parentElement.value=n.parentElement.textContent;let old=originals.get(n);if(!old||n.nodeValue!==old.last){old={source:n.nodeValue,last:n.nodeValue};originals.set(n,old)}let t=old.source.replace(/\S(?:[\s\S]*\S)?/,x=>translate(x));if(n.nodeValue!==t)n.nodeValue=t;old.last=t;}for(const e of document.querySelectorAll('[placeholder]')){let a=attrs.get(e)||e.getAttribute('placeholder');attrs.set(e,a);let t=translate(a);if(e.placeholder!==t)e.placeholder=t;}document.querySelectorAll('#custia-lang button').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.lang===lang)));}
 const box=document.createElement('div');box.id='custia-lang';box.innerHTML='<button type="button" data-lang="en">EN</button><button type="button" data-lang="th">TH</button>';document.body.append(box);box.onclick=e=>{if(!e.target.dataset.lang)return;lang=e.target.dataset.lang;localStorage.setItem('custia.language',lang);walk()};let queued=false;new MutationObserver(()=>{if(!queued){queued=true;requestAnimationFrame(()=>{queued=false;walk()})}}).observe(document.body,{subtree:true,childList:true,characterData:true});walk();
 })();

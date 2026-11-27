@@ -1,0 +1,25 @@
+/* Keep floating controls in separate rows, including safe-area insets. */
+#custia-lang{position:fixed;right:max(12px,env(safe-area-inset-right));bottom:calc(12px + env(safe-area-inset-bottom));z-index:9999;display:flex;border:1px solid #f0003c;border-radius:24px;overflow:hidden;background:#fff;box-shadow:0 2px 12px #0002}
+#custia-lang button{border:0!important;background:#fff!important;color:#222!important;padding:9px 12px;font:600 12px Arial;cursor:pointer;min-height:36px}
+#custia-lang button[aria-pressed=true]{background:#c90032!important;color:#fff!important}
+.ann-notify{right:max(12px,env(safe-area-inset-right));bottom:calc(64px + env(safe-area-inset-bottom))!important}
+.ann-notify[hidden]{display:none!important}.ann-notify-panel{box-sizing:border-box;max-width:calc(100vw - 24px);max-height:min(60dvh,calc(100dvh - 150px))}
+.ann-notify-toggle{min-height:44px;min-width:44px;background:#c90032!important;color:white!important}
+body{padding-bottom:calc(76px + env(safe-area-inset-bottom))}
+.directory-mode .legacy-record-links{display:none!important}
+/* The routepage button rule previously supplied a white background. */
+.mission938 .missioncard button.missionaccept,.mission938 #missiondetail .missionaccept{background:#c90032!important;color:#fff!important;border:1px solid #c90032!important}
+.mission938 #missiondetail .missioncancel{background:#111!important;color:#fff!important}
+html[data-personnel] .mission938,html[data-personnel] .mission938 .missionbrand h1 span{color:var(--staff-ink)!important}
+html[data-personnel] .mission938 .missioncard,html[data-personnel] #missiondetail :is(.missiondetailpanel,.missionparticipants,.missiondifficulty,.missionreward){background:var(--staff-panel)!important;color:var(--staff-ink)!important;border:1px solid var(--staff-line)}
+html[data-personnel] #missiondetail :is(.missionobjective,.missiondetailmeta,.missiondetailbrand span),html[data-personnel] .mission938 .missioncard small{color:var(--staff-ink)!important}
+html[data-personnel] .mission938 .missionfilters button[aria-pressed=true]{background:#c90032!important;color:white!important}
+html[data-personnel] :is(.ann-notify-panel,.ann-card,.ann-page form,#mail,#modal,.board,.entry){background:var(--staff-panel)!important;color:var(--staff-ink)!important;border-color:var(--staff-line)!important}
+html[data-personnel] :is(.ann-notify-panel a,.ann-brand span,#mail .brand h1 span,#mail .entry small,#mail #connection,#directory-status){color:var(--staff-ink)!important}
+html[data-personnel] .ann-notify-panel a.unread{background:var(--staff-bg)!important}
+html[data-personnel] .bubble:not(.mine),html[data-personnel] .bubble.deleted{background:var(--staff-bg)!important;color:var(--staff-ink)!important}
+html[data-personnel] .bubble.mine:not(.deleted){color:#fff!important}
+html[data-personnel] .q949scene .q949spot,html[data-personnel] .uniform950-fold{background:transparent!important;border:0!important}
+html[data-personnel] :is(.directory-mode #online-create,.mission-create-wrap button){background:#c90032!important;color:white!important}
+html[data-personnel] :is(input,textarea)::placeholder{color:var(--staff-muted);opacity:1}
+html[data-personnel] .directory-controls button[aria-pressed=true]{background:#c90032!important;color:white!important}
