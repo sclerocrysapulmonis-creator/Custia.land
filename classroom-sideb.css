@@ -2,5 +2,3 @@
 
 .csb-controls{display:grid;gap:8px;margin-top:12px}.csb-itemline{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:8px 12px;border:1px solid #444;border-radius:8px;overflow-wrap:anywhere}.csb-itemline span{min-width:0}.csb-itemline button{flex-shrink:0}.csb-stage.csb-knock>img{animation:csb-tap .32s ease}@keyframes csb-tap{25%,65%{transform:translateX(2px)}45%,85%{transform:translateX(-2px)}}@media(prefers-reduced-motion:reduce){.csb-stage.csb-knock>img{animation:none}}
 .csb-guard-reply{position:absolute;z-index:5;top:40%;left:50%;transform:translateX(-50%);max-width:90%;background:#151515ed;color:white;border:1px solid #f0003c;border-radius:10px;padding:12px 18px;text-align:center;pointer-events:none;font-size:clamp(14px,3vw,22px);box-shadow:0 3px 12px #0006}
-
-.csb .csb-board-hot{clip-path:polygon(0 32%,100% 0,100% 100%,0 93%);}
