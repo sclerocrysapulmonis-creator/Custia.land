@@ -11,9 +11,10 @@ const logo='<svg viewBox="0 0 120 120" aria-hidden="true"><use href="#logo" styl
 // V0.9.3.2: History/Item/Gallery tabs live in interactive093.js (permanent sticky bar)
 
 function draw(){
-  sec.replaceChildren();sec.hidden=!current||!!window.custiaExtraMode;if(!current)return;
+  sec.replaceChildren();sec.classList.remove('teacher-history0960');sec.hidden=!current||!!window.custiaExtraMode;if(!current)return;
   const r=current,k=key(r),own=r.onlineOwner?!!r.onlineOwn:!!account&&r.owner===account,a=window.custiaExtras.read(r);
   if(k!==last){last=k;idx=0;editing=false}
+  if((r.registryType==='teacher'||r.Role==='Teacher')&&window.custiaTeacherHistory){window.custiaTeacherHistory(sec,r,a,own);return;}
   const hist=a.history??r.onlineBio??'',crime=a.crime||'';
   const title=el('div','hist-title','HISTORY');title.setAttribute('aria-hidden','true');
   const main=el('div','hist-main'),side=el('div','hist-side');sec.append(title,main,side);
