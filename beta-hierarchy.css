@@ -8,3 +8,20 @@
 html[lang=th] .beta-home #hierarchy.beta-hierarchy > header > h2 {letter-spacing:0; line-height:1.4;}
 .beta-home #hierarchy.beta-hierarchy > svg {width:min(100%,760px); max-width:100%; height:auto; overflow:hidden;}
 @media(max-width:767px){.beta-home #hierarchy.beta-hierarchy > header > h2 {font-size:clamp(24px,9.5vw,72px);}.beta-home #hierarchy.beta-hierarchy > svg {margin-top:24px;}}
+
+/* Stage 08.2: compact viewport-aware hierarchy */
+.beta-home #hierarchy.beta-hierarchy {padding:12px 0 16px !important; margin:0 auto !important; min-height:0 !important; height:auto !important; gap:0 !important;}
+.beta-home #hierarchy.beta-hierarchy > header {padding:0 clamp(16px,4vw,48px) 10px !important; margin:0 !important; min-height:0 !important;}
+.beta-home #hierarchy.beta-hierarchy > header > h2 {font-size:clamp(24px,5.5vw,52px) !important; line-height:1.15 !important; margin:4px 0 0 !important;}
+.beta-home #hierarchy.beta-hierarchy > header > small {font-size:clamp(10px,1.4vw,13px) !important;}
+.beta-home #hierarchy.beta-hierarchy > svg {width:min(calc(100% - 24px), 520px, max(210px, calc((100svh - 250px) * .88))) !important; height:auto !important; max-height:none !important; margin:8px auto 0 !important;}
+.beta-home #hierarchy.beta-hierarchy .hierarchy-caption {padding:0 12px !important; margin:0 !important;}
+.beta-home #hierarchy.beta-hierarchy .hierarchy-caption h3 {font-size:clamp(14px,2.2vw,21px) !important; margin:3px 0 !important; line-height:1.25 !important;}
+.beta-home #hierarchy.beta-hierarchy .hierarchy-caption small {font-size:11px !important; line-height:1.2 !important;}
+@media(max-height:480px) and (orientation:landscape) {
+.beta-home #hierarchy.beta-hierarchy {display:grid !important; grid-template-columns:minmax(0,1fr) minmax(0,1fr); align-items:center; padding:8px 16px !important;}
+.beta-home #hierarchy.beta-hierarchy > header {grid-column:1; border:0; padding:0 !important;}
+.beta-home #hierarchy.beta-hierarchy > header > h2 {font-size:clamp(22px,4vw,42px) !important;}
+.beta-home #hierarchy.beta-hierarchy > svg {grid-column:2; grid-row:1 / span 2; width:min(100%,calc((100svh - 100px)*.88)) !important; margin:0 auto !important;}
+.beta-home #hierarchy.beta-hierarchy .hierarchy-caption {grid-column:1;}
+}
