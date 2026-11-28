@@ -1,0 +1,27 @@
+CUSTIA BETA 10.0.0 Stage 11 - bug-fix pass
+
+FIXED
+1. beta-home11.css  - Information Terminal layout collapsed: #desktop had 0 height, app tiles overflowed
+   onto the dock/spec bar and the title was overlapped. Cause: stability.css makes .screen a flex column
+   with #desktop{flex:1;min-height:0}, while beta-home11.css forces height:auto!important. Fixed by
+   making .screen display:block and #desktop/#appwindow flex:none. (cache-bust bumped in index.html)
+2. teacher-history0960.js - page-turn sound pointed to non-existent folder "assets946/" (404, silent).
+   Now loads the mp3 from the site root. (cache-bust bumped in database.html)
+3. announcement.html - interface951.css was linked twice.
+4. index.html - stale footer/version text (ONLINE ALPHA 0.9.4.5, V0.9.6.2) -> BETA 10.0.0 / Stage 11.
+
+NOT CHANGED - NEEDS OWNER DECISION
+A. account.sql defines custia_redeem_staff() twice. The second copy (appended after COMMIT, identical to
+   personnel-codes.sql) overwrites the single-use invite-code version with hard-coded 3-digit codes
+   (827/164/928/280) shared by every account of a role -> brute-forceable. Decide which model you want.
+B. Columns used by the app but defined in no SQL file here: the_seven, npc, registry_type, illustration,
+   rp_description, skill titles. A fresh Supabase setup from these files would break the online directory.
+C. fonts/SOV_Sapda.ttf and fonts/SOV_Patigon.ttf (beta-home11.css) are missing; browsers fall back to Arial.
+D. relationship-motion-video.mp4 is a 2-byte placeholder (page falls back to the animation, harmless).
+E. Stray copies safe to remove after review: "database (1).html", "database (2).html", "index (2).html",
+   "mail (1).html", teacher-history0960.js.txt, Custia_Source_v077.zip, Custia_Source_v0831.zip,
+   Custia_personnel_codes_v0914.sql (identical to personnel-codes.sql).
+
+TESTED (headless Chromium, local server, offline): 14 pages load with no JS errors and no 404s;
+terminal buttons, hierarchy dialog, directory tabs/search/zone filter/profile open. Not tested:
+anything needing live Supabase (login, online records, mail, bank, missions rewards).
