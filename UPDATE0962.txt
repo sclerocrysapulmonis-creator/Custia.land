@@ -1,0 +1,6 @@
+V0.9.6.2 UI & Media Preview
+Home: five portal links, mail next to leaderboard, announcement next to missions; mobile two-column layout, database first. Floating mail link removed; unread badge on home. Version marker in footer.
+Mail: 550ms long press, right click or keyboard opens message options; Thai identity labels; OOC black on both sides, incoming IC white, outgoing IC red. Existing image/sticker code retained.
+Item: viewport-constrained artwork and contained item images. Transparent item hit areas reinforced.
+Known blocker: no shooting/weapon screen implementation found in supplied archive; exact black overlay not fixed. Need screenshot and corresponding source.
+SQL already installed on connected project; do not rerun MAIL0961_SETUP.sql. Preview shares production database. No browser or authenticated multi-account tests performed. Test on iPad/mobile/desktop before promoting.
