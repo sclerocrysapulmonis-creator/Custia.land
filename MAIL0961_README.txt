@@ -1,0 +1,3 @@
+V0.9.6.1 media candidate — NOT production verified.
+SQL is a draft; review and test on staging before deployment. Run once only. Existing text RPC retained. Private buckets, per-account sticker library, attachment previews. Limits 10 MB images / 2 MB stickers. No mute/report.
+Known gaps: orphan upload cleanup, sticker pagination, media download caching, full browser and three-account privacy tests, other previously discussed updates not included. Test outsider denial, blocked sending, deleted and hidden attachments, IC ownership, retry, mobile, sticker deletion and text regression. Do not deploy until verified.
