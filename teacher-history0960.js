@@ -7,7 +7,7 @@ window.custiaTeacherHistoryStop=()=>{audio?.pause()};
 window.custiaTeacherHistory=(sec,r,a,own)=>{
  const k=r.uid||r.owner+'|'+r.id;if(k!==last){last=k;opened=false;editing=false}sec.classList.add('teacher-history0960');
  const stage=el('div','teacher-stage'),title=el('h2','teacher-title',T('PERSONNEL / HISTORY','บุคลากร / ประวัติ'));sec.append(title,stage);
- const scene=el('div','teacher-scene');stage.append(scene);const img=(file,cls)=>{const n=el('img',cls);n.src=asset+file;n.alt='';n.draggable=false;return n};
+ const scene=el('div','teacher-scene');stage.append(scene);const img=(file,cls)=>{const n=el('img',cls);n.src=new URL(file,document.baseURI).href;n.alt='';n.draggable=false;return n};
  const alias=r.alias||r.name||'Unknown';const hist=a.history??r.onlineBio??'';
  const closed=el('button','teacher-closed');closed.type='button';closed.setAttribute('aria-label',T('Open teacher folder','เปิดแฟ้มอาจารย์'));closed.append(img('teacher-back.png','teacher-back'),el('span','teacher-paper-back'),img('teacher-front.png','teacher-front'),el('span','teacher-name',alias));
  const open=el('div','teacher-open');open.append(img('teacher-open.png','teacher-open-art'));const paper=el('article','teacher-paper');paper.append(el('small','', 'CUSTIA / TEACHER'),el('h3','',alias),el('p','teacher-doc-label',T('Personal background','ประวัติส่วนตัว')));const body=el('div','teacher-doc-text',hist||T('No records available.','ยังไม่มีประวัติ'));paper.append(body);open.append(paper);scene.append(closed,open);
