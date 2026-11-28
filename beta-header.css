@@ -1,0 +1,18 @@
+/* BETA 10.0.0 — homepage header only */
+body.beta-home > header.beta-header{--logo-hole:#e8e8e8;display:flex!important;align-items:stretch!important;justify-content:initial!important;gap:0!important;padding:0!important;height:76px!important;background:#e8e8e8!important;color:#111!important;border-bottom:1px solid #777!important;box-shadow:none!important;font-family:Arial,sans-serif;position:sticky;top:0;z-index:100;}
+.beta-header > *{flex-shrink:0;align-self:stretch!important;}
+body.beta-home > header.beta-header #menutoggle{display:grid!important;place-items:center;width:5.5%;min-width:48px;margin:0!important;padding:0!important;border:0;border-right:1px solid #999;color:#111!important;background:transparent!important;}
+body.beta-home > header.beta-header a.beta-brand{display:flex!important;align-items:center;gap:14px;padding:0 24px;color:#111!important;text-decoration:none;margin:0!important;}
+.beta-brand svg{width:54px!important;height:54px!important;color:#ed003d!important;flex:none;}
+.beta-wordmark{font-family:Impact,'Arial Narrow',sans-serif;font-size:clamp(28px,3.2vw,48px);font-weight:900;letter-spacing:-1.5px;line-height:1;}
+.beta-header .beta-description,.beta-header .beta-meta,.beta-header .beta-online{display:flex;align-items:center;font:14px/1.35 'Courier New',monospace;white-space:nowrap;}
+.beta-description{padding:0 24px;border-left:1px solid #888;}
+.beta-meta{margin-left:auto;gap:0;}.beta-meta span{padding:0 20px;border-right:1px solid #888;}
+.beta-online{padding:0 24px;color:#ed003d;gap:8px;}.beta-online::before{content:'';width:12px;height:12px;border-radius:50%;background:currentColor;}
+body.beta-home > header.beta-header a.beta-account{display:flex!important;align-items:center;justify-content:center;padding:0 26px;border-left:1px solid #888;color:#111!important;text-decoration:none;font:16px 'Courier New',monospace;margin:0!important;}
+.beta-header [hidden],.beta-header .accountlinks{display:none!important;}
+body.beta-home #navigation{top:76px;}
+@media(max-width:1200px){.beta-meta span{padding:0 10px}.beta-description{padding:0 14px}.beta-online{padding:0 12px}.beta-header a.beta-brand{padding:0 12px!important}}
+@media(max-width:1000px){.beta-header .beta-meta{display:none}.beta-header .beta-online{margin-left:auto}.beta-wordmark{letter-spacing:3px;font-family:Arial,sans-serif;font-size:26px}.beta-header .beta-description{font-size:11px}}
+@media(max-width:600px){body.beta-home > header.beta-header{height:60px!important}.beta-header .beta-description{display:none}.beta-header .beta-brand svg{width:32px!important;height:32px!important}.beta-header .beta-wordmark{font-size:19px;letter-spacing:1px}.beta-header a.beta-brand{gap:7px!important;padding:0 8px!important}.beta-header .beta-online{font-size:10px;padding:0 7px;gap:4px}.beta-online::before{width:7px;height:7px}body.beta-home > header.beta-header a.beta-account{font-size:11px;padding:0 9px}body.beta-home #navigation{top:60px}}
+@media(max-width:350px){.beta-header .beta-online{font-size:0}.beta-header .beta-online::before{width:8px;height:8px}}

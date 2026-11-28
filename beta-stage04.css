@@ -1,0 +1,15 @@
+@font-face{font-family:Gondens;src:local('Gondens DEMO'),local('Gondens');font-display:swap;}
+/* Stage 04: editorial hero, homepage only */
+body.beta-home{background:#e8e8e8;color:#111}
+body.beta-home #home{max-width:none;width:100%;padding:0 0 64px;margin:0 auto}
+body.beta-home .hero{margin:0 clamp(0px,2vw,32px) 0 clamp(0px,5.5vw,84px);border-left:1px solid #888;border-right:1px solid #888}
+body.beta-home .hero .carousel{aspect-ratio:auto;height:clamp(420px,34vw,680px);isolation:isolate;border-bottom:1px solid #888}
+body.beta-home .hero .carousel .slide{left:29%;width:71%;object-position:center 47%}
+body.beta-home .hero .carousel:after{content:'';position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(90deg,#e8e8e8 0%,#e8e8e8 25%,rgba(232,232,232,.94) 31%,rgba(232,232,232,.2) 46%,transparent 58%)}
+.beta-hero-copy{position:absolute;z-index:2;inset:0 auto 0 0;width:55%;padding:clamp(18px,2vw,36px);display:flex;flex-direction:column;align-items:flex-start;pointer-events:none}
+.beta-hero-kicker,.beta-hero-motto,.beta-hero-note,.beta-archive{font-family:'Courier New',monospace;color:#111}
+.beta-hero-kicker{font-size:clamp(10px,1vw,15px)}
+body.beta-home .beta-hero-title{font-family:Gondens,Anton,Impact,'Arial Narrow',sans-serif;font-weight:400;font-size:clamp(65px,9.5vw,180px);line-height:.91;letter-spacing:-.025em;margin:12px 0 18px;white-space:nowrap;color:#090909}
+.beta-hero-title span{display:block}.beta-hero-rule{width:55px;height:12px;background:#ed003d;margin-top:auto;margin-bottom:10px}.beta-hero-motto{font-size:clamp(12px,1.25vw,20px);letter-spacing:.15em;line-height:1.4}.beta-hero-note{font-size:10px;line-height:1.25;border-left:1px solid #111;padding-left:12px;margin:12px 0 0}.beta-archive{position:absolute;right:0;top:0;z-index:2;background:#e8e8e8;padding:18px;font-size:12px;line-height:1.4;pointer-events:none}.beta-archive i{display:block;width:34px;height:48px;margin:16px 0 0 auto;background:repeating-linear-gradient(90deg,#111 0 1px,transparent 1px 4px)}
+body.beta-home .hero .slidecontrols{z-index:3;bottom:16px;right:12px}.beta-home .hero>.meta{display:none}.beta-home .beta-wordmark{font-family:Gondens,Anton,Impact,sans-serif}.beta-home .hero .portals a.portalbutton{font-family:Gondens,'Barlow Condensed',Arial,sans-serif}
+@media(max-width:767px){body.beta-home .hero{margin:0}body.beta-home .hero .carousel{height:clamp(270px,85vw,500px)}body.beta-home .hero .carousel .slide{left:38%;width:62%;object-position:center}body.beta-home .hero .carousel:after{background:linear-gradient(90deg,#e8e8e8 0%,#e8e8e8 24%,rgba(232,232,232,.9) 38%,transparent 75%)}.beta-hero-copy{width:100%;padding:20px 12px}body.beta-home .beta-hero-title{font-size:clamp(48px,13vw,100px);margin-top:22px}.beta-hero-rule{height:7px;width:34px}.beta-hero-motto{font-size:10px;letter-spacing:.06em;max-width:65%}.beta-hero-note,.beta-archive{display:none}.beta-home .hero .slidecontrols{bottom:8px;right:4px}.beta-home .hero .portals a.portalbutton{font-family:'Barlow Condensed',Arial,sans-serif}}

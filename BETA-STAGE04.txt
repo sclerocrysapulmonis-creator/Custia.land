@@ -1,0 +1,1 @@
+Homepage editorial hero. Gondens is local-only for private testing; install your own licensed font. Anton fallback. No database or JavaScript changes. Browser testing pending.

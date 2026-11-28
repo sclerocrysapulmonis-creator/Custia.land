@@ -1,0 +1,4 @@
+body.beta-home .hero .carousel {background:#e8e8e8;aspect-ratio:2.8;}
+body.beta-home .hero .carousel .slide {object-fit:cover;object-position:center 47%;}
+body.beta-home .hero .carousel .beta-hero-picture {display:contents;}
+@media(max-width:767px){body.beta-home .hero .carousel{aspect-ratio:1.35;}body.beta-home .hero .carousel .slide{object-position:center 50%;}}
