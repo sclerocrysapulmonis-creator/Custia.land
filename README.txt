@@ -1,7 +1,1 @@
-Custia Item patch — from Custia_Preview_No_Guide(1).zip
-1. Back up existing interactive093.js. Replace only this file at repository root.
-2. In database.html change interactive093.js?v=0960step06 to interactive093.js?v=itemfix01 to avoid stale cache.
-3. Other files are reference copies of existing item CSS, uniform code and original art/audio. Do not overwrite newer versions unnecessarily.
-4. Test Item on prisoner, teacher and guard profiles. Staff now opens the existing prisoner-style Item interface; separate staff shelf/locker art and code were not found in this source. Quarters remains disabled for staff.
-5. Existing Item code shares Gallery/Quarters and data persistence; those functions are retained unchanged. No database changes. Test owner/non-owner permissions and persistence before production.
-6. Syntax checked only, not tested against live site.
+Restore upload/ files to repository root. Do not replace database.html wholesale. Ensure classroom-sideb.css, guard-room.css, interactive093.css and teacher-history0960.css are linked. Ensure classroom-sideb.js and guard-room.js load before interactive093.js; teacher-history0960.js before history-panel.js. Change query versions for replaced scripts (e.g. staffrestore01). Keep existing dependencies and database settings. Original interactive093.js includes prisoner routing too; do not delete its embedded assets. Teacher weapon images open.png and lid.png are fetched from existing restricted storage and are not present in the archive. No guide files included. Browser integration not tested.
