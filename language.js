@@ -413,7 +413,23 @@ NEXT CASE|คดีถัดไป
 No character penalties · No Custia transactions|ไม่มีบทลงโทษตัวละคร · ไม่มีการใช้คัสเตีย
 CUSTIA RECREATIONAL SYSTEM|ระบบสันทนาการคัสเตีย
 Sign Up|สมัครสมาชิก`;
-const dict=new Map((pairs+'\n'+extra+'\n'+additions+'\n'+interface951).split('\n').map(s=>s.split('|')));let lang=localStorage.getItem('custia.language')||'en';const originals=new WeakMap();const attrs=new WeakMap();const skip='script,style,textarea,[data-no-translate],.entry strong,.entry small,.bubble p,.bubble small,.quote,.ann-card h2,.ann-card p,.ann-notify-panel a,#recordname,#realname,#recordid,#tabcontent,#fields dd,.directorycard strong,#recordlist,.missioncard h3,.missioncard p,.missioncard small,#who,#accountlabel,.archivecontent p,.archivecontent strong,#archivename';
+const beta10005=`DATABASE|ฐานข้อมูล
+ANNOUNCEMENTS|ประกาศ
+PORTAL|พอร์ทัล
+CUSTIA / OFFICIAL PORTAL|คัสเตีย / พอร์ทัลทางการ
+INSTITUTIONAL|สถาบัน
+INFORMATION SYSTEM|ระบบสารสนเทศ
+FACILITY / 001|สถานที่ / 001
+ORDER /|ระเบียบ /
+DISCIPLINE /|วินัย /
+PURPOSE|จุดมุ่งหมาย
+A CONTROLLED ENVIRONMENT|สภาพแวดล้อมที่มีการควบคุม
+FOR REHABILITATION,|เพื่อการฟื้นฟู
+OBSERVATION, AND USE.|การสังเกตและการใช้งาน
+ARCHIVE|คลังข้อมูล
+CUSTIA INFORMATION SYSTEM|ระบบสารสนเทศคัสเตีย
+TERMINAL / 01|ศูนย์ข้อมูล / 01`;
+const dict=new Map((pairs+'\n'+extra+'\n'+additions+'\n'+interface951+'\n'+beta10005).split('\n').map(s=>s.split('|')));let lang=localStorage.getItem('custia.language')||'en';const originals=new WeakMap();const attrs=new WeakMap();const skip='script,style,textarea,[data-no-translate],.entry strong,.entry small,.bubble p,.bubble small,.quote,.ann-card h2,.ann-card p,.ann-notify-panel a,#recordname,#realname,#recordid,#tabcontent,#fields dd,.directorycard strong,#recordlist,.missioncard h3,.missioncard p,.missioncard small,#who,#accountlabel,.archivecontent p,.archivecontent strong,#archivename';
 function translate(s){return lang==='th'?(dict.get(s)||(s.match(/^Message Requests \((\d+)\)$/)?s.replace('Message Requests','คำขอสนทนา'):s)):s}
 function walk(){if(document.documentElement.lang!==lang)document.documentElement.lang=lang;const w=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT);let n;while(n=w.nextNode()){if(n.parentElement.closest(skip))continue;if(n.parentElement.tagName==='OPTION'&&!n.parentElement.hasAttribute('value'))n.parentElement.value=n.parentElement.textContent;let old=originals.get(n);if(!old||n.nodeValue!==old.last){old={source:n.nodeValue,last:n.nodeValue};originals.set(n,old)}let t=old.source.replace(/\S(?:[\s\S]*\S)?/,x=>translate(x));if(n.nodeValue!==t)n.nodeValue=t;old.last=t;}for(const e of document.querySelectorAll('[placeholder]')){let a=attrs.get(e)||e.getAttribute('placeholder');attrs.set(e,a);let t=translate(a);if(e.placeholder!==t)e.placeholder=t;}document.querySelectorAll('#custia-lang button').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.lang===lang)));}
 const box=document.createElement('div');box.id='custia-lang';box.innerHTML='<button type="button" data-lang="en">EN</button><button type="button" data-lang="th">TH</button>';document.body.append(box);box.onclick=e=>{if(!e.target.dataset.lang)return;lang=e.target.dataset.lang;localStorage.setItem('custia.language',lang);walk()};let queued=false;new MutationObserver(()=>{if(!queued){queued=true;requestAnimationFrame(()=>{queued=false;walk()})}}).observe(document.body,{subtree:true,childList:true,characterData:true});walk();
