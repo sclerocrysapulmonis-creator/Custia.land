@@ -1,0 +1,1 @@
+Upload files at site root. Keep existing fonts/SOV_Sapda.ttf and fonts/SOV_Patigon.ttf; if absent extract from your original font archives into fonts/. No font binaries included. Live OAuth and rendering not tested. No database migrations. Home and account fixes are CSS/HTML overrides.
