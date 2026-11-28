@@ -1,8 +1,8 @@
-export async function mountShelf(host,books,onOpen){
+export async function mountShelf(host,books,onOpen,quality='auto'){
 const T=await import('https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js');
 const scene=new T.Scene();scene.background=new T.Color(0xe9e7e7);
 const camera=new T.PerspectiveCamera(38,1,.1,100);camera.position.set(0,1.8,7);camera.lookAt(0,1.5,0);
-const renderer=new T.WebGLRenderer({antialias:true});renderer.setPixelRatio(Math.min(devicePixelRatio,matchMedia('(pointer:coarse)').matches?1.25:1.75));host.replaceChildren(renderer.domElement);renderer.domElement.style.cssText='width:100%;height:100%;display:block;touch-action:pan-y';
+const cap=quality==='low'?1:quality==='medium'?1.25:quality==='high'?2:matchMedia('(pointer:coarse)').matches?1.25:1.75;const renderer=new T.WebGLRenderer({antialias:quality!=='low'});renderer.setPixelRatio(Math.min(devicePixelRatio,cap));host.replaceChildren(renderer.domElement);renderer.domElement.style.cssText='width:100%;height:100%;display:block;touch-action:pan-y';
 scene.add(new T.HemisphereLight(0xffffff,0x777777,2));const light=new T.DirectionalLight(0xffffff,2);light.position.set(3,6,5);scene.add(light);
 const group=new T.Group();scene.add(group);const targets=[];const materials=[];const geometries=[];const textures=[];
 function mat(color,extra={}){const m=new T.MeshStandardMaterial({color,...extra});materials.push(m);return m}
